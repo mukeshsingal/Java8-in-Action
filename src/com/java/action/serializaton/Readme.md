@@ -101,20 +101,25 @@ ________________________________________________________________________________
     **How to implement Customize Serialization**
     * Before and after serialization if we do extra work to recover the information. This is called customized Serialization. 
     * we can implement Customized Serialization by using the following 2 methods 
-        1) private void writeObject(ObjectOutputStream os) throws Exception 
+        1) `private void writeObject(ObjectOutputStream os) throws Exception` 
             * This method will be executed automatically at time of serialization. 
             * Hence if we want to do extra work we have to write code in this method only. 
-        2) private void readObject(ObjectOutputStream os) throws Exception 
+        2) `private void readObject(ObjectOutputStream os) throws Exception` 
             * This method will be executed automatically at time of de-serialization. 
             * Hence if we want to do extra work we have to write code in this method only.
     Note: 
         1. The above methods are callback method because these methods will be executed automatically by JVM
         2. If we want to do extra work in a class serialization then that class has to provide implementation of above methods
          
-    
-    
-    
 4. Serialization wrt inheritance.
+    Case 1. Parent implements Serializable but class doesn't 
+        * if parent is serializable then all the child will be serializable.
+           
+    Case 2. Child implements Serializable but parent doesn't
+        * If any instance variable is coming from parent which is not implementing serializable, JVM ignores then original 
+        value and save default value.
+        *   
+
 5. Externalization
 6. SerialVersionUID
 
