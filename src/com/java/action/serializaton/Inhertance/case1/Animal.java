@@ -1,4 +1,4 @@
-package com.java.action.serializaton.Inhertance;
+package com.java.action.serializaton.Inhertance.case1;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.java.action.serializaton.Inhertance;
+package com.java.action.serializaton.Inhertance.case2;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,17 +7,20 @@ import java.io.ObjectOutputStream;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Dog account = new Dog();
+        Dog myPet = new Dog();
+
+        myPet.i = 888;
+        myPet.j = 999;
 
         FileOutputStream fileOutputStream = new FileOutputStream("abc.abs");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-        objectOutputStream.writeObject(account);
+        objectOutputStream.writeObject(myPet);
 
         FileInputStream fileInputStream = new FileInputStream("abc.abs");
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-        Dog accounts = (Dog) objectInputStream.readObject();
-        System.out.println(accounts.i);
-        System.out.println(accounts.j);
+        Dog myDogRevived = (Dog) objectInputStream.readObject();
+        System.out.println(myDogRevived.i);
+        System.out.println(myDogRevived.j);
 
 
     }
